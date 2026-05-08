@@ -359,7 +359,7 @@ html{scroll-behavior:smooth;}
                   <div className="ev-desc">Master-klassda T.E.D. Prof. O. A. Pustotina Endometriozun diaqnostika və müalicəsində beynəlxalq tövsiyyələr, mövcud yeniliklər haqqda məlumatlar, həmçinin öz peşəkar təcrübəsini bölüşmüşdür</div>
                 </div>
                 <div className="ev-bottom">
-                  <div className="ev-date"><div className="ev-date-dot" style={{ opacity: 0.2 }} />2024 · Bakı</div>
+                  <div className="ev-date"><div className="ev-date-dot" style={{ opacity: 0.2 }} />28.11.2024 · Bakı</div>
                   <a href="https://inova-healthcare.com/layihələr/" className="ev-link" style={{ opacity: 0.4 }}>Baxış →</a>
                 </div>
               </div>
