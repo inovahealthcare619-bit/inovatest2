@@ -432,7 +432,7 @@ html{scroll-behavior:smooth;}
             <div className="events-grid">
               <div className="ev-card" style={{ borderColor: "rgba(91,184,232,.2)" }}>
                 <div className="ev-top">
-                  <span className="ev-badge upcoming">Gələcək</span>
+                  <span className="ev-badge upcoming font-mono text-sm text-center mx-[75px]">​GƏLƏCƏK</span>
                   <div className="ev-badge past mx-[75px]">"Fokusda Qadın - Qadın xəstəliklərinə multidisiplinar yanaşma: ginekologiya, endokrinologiya və onkologiyanın klinik inteqrasiyası" mövzusunda elmi-praktiki Konfrans {"\n"}06.06.2026</div>
                   <div className="ev-desc">Multidisiplinar yanaşma — müasir diaqnostika, hormonal pozğunluqlar və reproduktiv sağlamlıq üzrə beynəlxalq spikerlər.</div>
                 </div>
