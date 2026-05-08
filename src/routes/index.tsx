@@ -5,13 +5,13 @@ import logo from "@/assets/logo.jpeg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "iNova Health Care — Tibbi Konfrans Platforması" },
+      { title: "INOVA Health Care — Tibbi Konfrans Platforması" },
       {
         name: "description",
         content:
           "Bakıda 2014-dən bəri fəaliyyət göstərən tibbi konfrans platforması. Ginekologiya, endokrinologiya və onkologiya üzrə beynəlxalq konfranslar.",
       },
-      { property: "og:title", content: "iNova Health Care" },
+      { property: "og:title", content: "INOVA Health Care" },
       {
         property: "og:description",
         content: "Elm ilə praktikanın kəsişmə nöqtəsi — tibbi konfrans platforması.",
@@ -28,10 +28,7 @@ function Index() {
     const cv = document.getElementById("bg-canvas") as HTMLCanvasElement | null;
     if (!cv) return;
     const ctx = cv.getContext("2d")!;
-    let W = 0,
-      H = 0,
-      mx = -999,
-      my = -999;
+    let W = 0, H = 0, mx = -999, my = -999;
     const pts: P[] = [];
 
     const resize = () => {
@@ -41,15 +38,8 @@ function Index() {
     resize();
 
     class P {
-      x = 0;
-      y = 0;
-      rad = 0;
-      a = 0;
-      vx = 0;
-      vy = 0;
-      constructor() {
-        this.init(true);
-      }
+      x = 0; y = 0; rad = 0; a = 0; vx = 0; vy = 0;
+      constructor() { this.init(true); }
       init(r: boolean) {
         this.x = Math.random() * W;
         this.y = r ? Math.random() * H : H + 10;
@@ -61,14 +51,8 @@ function Index() {
       tick() {
         this.x += this.vx;
         this.y += this.vy;
-        const dx = this.x - mx,
-          dy = this.y - (my - window.scrollY),
-          d = Math.sqrt(dx * dx + dy * dy);
-        if (d < 90) {
-          const f = ((90 - d) / 90) * 0.25;
-          this.vx += (dx / d) * f;
-          this.vy += (dy / d) * f;
-        }
+        const dx = this.x - mx, dy = this.y - (my - window.scrollY), d = Math.sqrt(dx * dx + dy * dy);
+        if (d < 90) { const f = ((90 - d) / 90) * 0.25; this.vx += (dx / d) * f; this.vy += (dy / d) * f; }
         this.vx *= 0.99;
         this.vy = Math.max(this.vy, -0.7);
         if (this.y < -10) this.init(false);
@@ -81,13 +65,9 @@ function Index() {
       }
     }
 
-    const onMove = (e: MouseEvent) => {
-      mx = e.clientX;
-      my = e.clientY + window.scrollY;
-    };
+    const onMove = (e: MouseEvent) => { mx = e.clientX; my = e.clientY + window.scrollY; };
     window.addEventListener("resize", resize);
     window.addEventListener("mousemove", onMove);
-
     for (let i = 0; i < 90; i++) pts.push(new P());
 
     let raf = 0;
@@ -95,58 +75,19 @@ function Index() {
       ctx.clearRect(0, 0, W, H);
       for (let i = 0; i < pts.length; i++)
         for (let j = i + 1; j < pts.length; j++) {
-          const dx = pts[i].x - pts[j].x,
-            dy = pts[i].y - pts[j].y,
-            d = Math.sqrt(dx * dx + dy * dy);
+          const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y, d = Math.sqrt(dx * dx + dy * dy);
           if (d < 130) {
-            ctx.beginPath();
-            ctx.moveTo(pts[i].x, pts[i].y);
-            ctx.lineTo(pts[j].x, pts[j].y);
-            ctx.strokeStyle = `rgba(91,184,232,${(1 - d / 130) * 0.05})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y);
+            ctx.strokeStyle = `rgba(91,184,232,${(1 - d / 130) * 0.05})`; ctx.lineWidth = 0.5; ctx.stroke();
           }
         }
-      pts.forEach((p) => {
-        p.tick();
-        p.draw();
-      });
+      pts.forEach((p) => { p.tick(); p.draw(); });
       raf = requestAnimationFrame(loop);
     };
     raf = requestAnimationFrame(loop);
 
-    // Counter
-    const s1 = document.getElementById("s1");
-    let counted = false;
-    const obs = new IntersectionObserver(
-      (ents) => {
-        ents.forEach((e) => {
-          if (e.isIntersecting && !counted && s1) {
-            counted = true;
-            let st: number | null = null;
-            const dur = 1800,
-              t = 10;
-            const step = (ts: number) => {
-              if (!st) st = ts;
-              const p = Math.min((ts - st) / dur, 1),
-                ease = 1 - Math.pow(1 - p, 3);
-              s1.textContent = String(Math.floor(ease * t));
-              if (p < 1) requestAnimationFrame(step);
-              else s1.textContent = String(t);
-            };
-            requestAnimationFrame(step);
-          }
-        });
-      },
-      { threshold: 0.5 },
-    );
-    const sb = document.querySelector(".stats-bar");
-    if (sb) obs.observe(sb);
-
     // Reveal
-    const revs = document.querySelectorAll(
-      ".mcard,.scard,.fmt-row,.stat-item,.ev-card",
-    );
+    const revs = document.querySelectorAll(".mcard,.scard,.fmt-row,.ev-card");
     const revObs = new IntersectionObserver(
       (ents) => {
         ents.forEach((e) => {
@@ -170,7 +111,6 @@ function Index() {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", onMove);
-      obs.disconnect();
       revObs.disconnect();
     };
   }, []);
@@ -187,7 +127,9 @@ function Index() {
 html{scroll-behavior:smooth;}
 #bg-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;}
 .inova nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:0 5%;height:68px;background:rgba(7,24,40,0.75);backdrop-filter:blur(18px);border-bottom:1px solid rgba(91,184,232,0.1);}
+.nlogo{display:flex;align-items:center;gap:10px;}
 .nlogo img{height:36px;display:block;border-radius:6px;background:#fff;padding:3px 6px;}
+.nlogo-text{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:#fff;letter-spacing:0.5px;}
 .nlinks{display:flex;gap:28px;}
 .nlinks a{font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .2s;}
 .nlinks a:hover{color:var(--sky);}
@@ -201,8 +143,8 @@ html{scroll-behavior:smooth;}
 .mobile-menu .m-cta{margin-top:16px;background:var(--sky);color:var(--ink);text-align:center;border-radius:6px;font-weight:700;padding:14px;}
 .hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 5% 80px;overflow:hidden;}
 .hero-bg{position:absolute;inset:0;z-index:0;}
-.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(0.22) saturate(0.6);}
-.hero-bg-grad{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(7,24,40,0.4) 0%,rgba(7,24,40,0.1) 40%,rgba(7,24,40,0.7) 85%,rgba(7,24,40,1) 100%);}
+.hero-bg-img{width:100%;height:100%;object-fit:cover;filter:brightness(0.55) saturate(0.5);}
+.hero-bg-grad{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(7,24,40,0.3) 0%,rgba(7,24,40,0.05) 40%,rgba(7,24,40,0.6) 85%,rgba(7,24,40,1) 100%);}
 .hero-content{position:relative;z-index:2;}
 .hero-chip{display:inline-flex;align-items:center;gap:8px;background:rgba(91,184,232,0.12);border:1px solid rgba(91,184,232,0.28);border-radius:30px;padding:6px 18px;font-size:11px;color:var(--sky);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:32px;animation:fadeUp .8s ease both;}
 .pulse{width:7px;height:7px;background:var(--sky);border-radius:50%;animation:pulseAnim 2s infinite;}
@@ -215,8 +157,6 @@ html{scroll-behavior:smooth;}
 .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:fadeUp 1s .3s ease both;}
 .btn-glow{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:14px 30px;background:var(--sky);color:var(--ink);border-radius:5px;text-decoration:none;transition:all .25s;position:relative;overflow:hidden;display:inline-block;}
 .btn-glow:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(91,184,232,.35);}
-.btn-line{font-size:13px;padding:14px 30px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);border-radius:5px;text-decoration:none;transition:all .25s;display:inline-block;}
-.btn-line:hover{border-color:var(--sky);color:var(--sky);}
 .scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.18);}
 .scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,rgba(91,184,232,.5),transparent);animation:sline 2s infinite;}
 @keyframes sline{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform:scaleY(1);transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
@@ -226,13 +166,6 @@ html{scroll-behavior:smooth;}
 .ticker-item{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink);padding:0 32px;display:flex;align-items:center;gap:10px;}
 .ticker-dot{width:4px;height:4px;background:rgba(7,24,40,.3);border-radius:50%;display:inline-block;}
 @keyframes tkr{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-.stats-bar{position:relative;z-index:1;background:rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.05);display:grid;grid-template-columns:repeat(3,1fr);}
-.stat-item{padding:32px 36px;border-right:1px solid rgba(255,255,255,.05);display:flex;flex-direction:column;gap:6px;transition:background .3s;}
-.stat-item:last-child{border-right:none;}
-.stat-item:hover{background:rgba(91,184,232,.05);}
-.stat-n{font-family:'Instrument Serif',serif;font-size:42px;color:#fff;line-height:1;}
-.stat-n span{color:var(--sky);}
-.stat-l{font-size:11px;color:rgba(255,255,255,.3);letter-spacing:.5px;text-transform:uppercase;}
 .mission{position:relative;z-index:1;padding:110px 5%;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;max-width:1160px;margin:0 auto;}
 .tag{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sky);margin-bottom:18px;}
 .mission h2{font-family:'Instrument Serif',serif;font-size:clamp(30px,3.5vw,46px);line-height:1.2;margin-bottom:22px;color:#fff;}
@@ -248,7 +181,7 @@ html{scroll-behavior:smooth;}
 .sec-tag{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sky);margin-bottom:14px;}
 .sec-h{font-family:'Instrument Serif',serif;font-size:clamp(28px,3.5vw,46px);color:#fff;line-height:1.2;}
 .sec-h em{color:var(--sky);font-style:italic;}
-.events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1160px;margin:0 auto;}
+.events-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:860px;margin:0 auto;}
 .ev-card{background:var(--navy);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.06);transition:all .3s;display:flex;flex-direction:column;}
 .ev-card:hover{transform:translateY(-5px);border-color:rgba(91,184,232,.25);box-shadow:0 20px 40px rgba(0,0,0,.3);}
 .ev-top{padding:28px 28px 20px;flex:1;}
@@ -281,11 +214,6 @@ html{scroll-behavior:smooth;}
 .fmt-d{font-size:13px;color:rgba(255,255,255,.32);line-height:1.65;}
 .fmt-arr{font-size:16px;color:rgba(91,184,232,.2);text-align:right;transition:all .25s;}
 .fmt-row:hover .fmt-arr{color:var(--sky);transform:translateX(4px);}
-.cta-block{position:relative;z-index:1;margin:0 5% 90px;border-radius:16px;overflow:hidden;padding:72px 56px;background:linear-gradient(135deg,#0c2340,#1e3a5f);display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;}
-.cta-gfx{position:absolute;right:-60px;top:-60px;width:280px;height:280px;border-radius:50%;border:1px solid rgba(91,184,232,.1);}
-.cta-gfx2{position:absolute;right:50px;bottom:-70px;width:180px;height:180px;border-radius:50%;border:1px solid rgba(91,184,232,.07);}
-.cta-block h2{font-family:'Instrument Serif',serif;font-size:34px;color:#fff;margin-bottom:8px;}
-.cta-block p{font-size:14px;color:rgba(255,255,255,.4);}
 .inova footer{position:relative;z-index:1;background:#040d16;padding:56px 5% 28px;border-top:1px solid rgba(255,255,255,.04);}
 .ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:56px;margin-bottom:40px;max-width:1100px;margin-left:auto;margin-right:auto;}
 .ft-logo img{height:32px;display:block;margin-bottom:16px;border-radius:6px;background:#fff;padding:3px 6px;}
@@ -299,20 +227,17 @@ html{scroll-behavior:smooth;}
 @media(max-width:768px){
   .nlinks,.ncta{display:none;}
   .hamburger{display:flex;}
-  .stats-bar{grid-template-columns:1fr 1fr;}
-  .stats-bar .stat-item:last-child{grid-column:1/-1;border-right:none;border-top:1px solid rgba(255,255,255,.05);}
   .mission{grid-template-columns:1fr;gap:40px;padding:70px 5%;}
   .events-grid,.spec-grid{grid-template-columns:1fr;}
   .fmt-row{grid-template-columns:40px 1fr;gap:14px;}
   .fmt-d,.fmt-arr{display:none;}
-  .cta-block{padding:48px 32px;flex-direction:column;text-align:center;margin:0 4% 70px;}
   .ft-grid{grid-template-columns:1fr;gap:36px;}
   .ft-bot{flex-direction:column;align-items:center;text-align:center;}
 }
 @media(max-width:480px){
   .hero h1{font-size:38px;}
   .hero-btns{flex-direction:column;align-items:stretch;}
-  .btn-glow,.btn-line{width:100%;text-align:center;}
+  .btn-glow{width:100%;text-align:center;}
 }
       `}</style>
 
@@ -321,7 +246,8 @@ html{scroll-behavior:smooth;}
 
         <nav>
           <div className="nlogo">
-            <img src={logo} alt="iNova Health Care" />
+            <img src={logo} alt="INOVA Health Care" />
+            <span className="nlogo-text">INOVA Health Care</span>
           </div>
           <ul className="nlinks">
             <li><a href="#miss">Missiya</a></li>
@@ -348,14 +274,15 @@ html{scroll-behavior:smooth;}
         <section className="hero">
           <div className="hero-bg">
             <img
-              src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&q=80&fit=crop"
+              className="hero-bg-img"
+              src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1600&q=80&fit=crop"
               alt="Tibbi konfrans"
             />
             <div className="hero-bg-grad" />
           </div>
           <div className="hero-content">
             <div className="hero-chip">
-              <div className="pulse" />Bakı · Tibbi Konfrans Platforması · 2014
+              <div className="pulse" />INOVA Health Care · Bakı · 2014
             </div>
             <h1>
               <span className="l1">Tibbi Bilikləri</span>
@@ -366,8 +293,7 @@ html{scroll-behavior:smooth;}
               Elmi araşdırmalar ilə klinik praktikanı inteqrasiya edən, mütəxəssislər üçün davamlı inkişaf mühiti yaradan tibbi konfrans platforması.
             </p>
             <div className="hero-btns">
-              <a href="https://inova-healthcare.com/layihələr/" className="btn-glow">Konfranslara Bax →</a>
-              <a href="#miss" className="btn-line">Daha Ətraflı</a>
+              <a href="#events" className="btn-glow">Konfranslara Bax →</a>
             </div>
           </div>
           <div className="scroll-hint"><div className="scroll-line" />Scroll</div>
@@ -382,21 +308,6 @@ html{scroll-behavior:smooth;}
                 </span>
               )),
             )}
-          </div>
-        </div>
-
-        <div className="stats-bar">
-          <div className="stat-item">
-            <div className="stat-n" id="s1">10</div>
-            <div className="stat-l">İl Təcrübə</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-n">3<span>+</span></div>
-            <div className="stat-l">Multidisiplinar Sahə</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-n" style={{ fontSize: 26, paddingTop: 10 }}>Bakı</div>
-            <div className="stat-l">Nəsibbəy Yusifbəyli</div>
           </div>
         </div>
 
@@ -432,12 +343,12 @@ html{scroll-behavior:smooth;}
             <div className="events-grid">
               <div className="ev-card" style={{ borderColor: "rgba(91,184,232,.2)" }}>
                 <div className="ev-top">
-                  <span className="ev-badge upcoming font-mono text-sm text-center mx-[75px]">​GƏLƏCƏK</span>
-                  <div className="ev-badge past mx-[75px]">"Fokusda Qadın - Qadın xəstəliklərinə multidisiplinar yanaşma: ginekologiya, endokrinologiya və onkologiyanın klinik inteqrasiyası" mövzusunda elmi-praktiki Konfrans {"\n"}06.06.2026</div>
+                  <span className="ev-badge upcoming">Gələcək</span>
+                  <div className="ev-title">"Fokusda Qadın" — Ginekologiya, Endokrinologiya və Onkologiyanın Klinik İnteqrasiyası</div>
                   <div className="ev-desc">Multidisiplinar yanaşma — müasir diaqnostika, hormonal pozğunluqlar və reproduktiv sağlamlıq üzrə beynəlxalq spikerlər.</div>
                 </div>
                 <div className="ev-bottom">
-                  <div className="ev-date"><div className="ev-date-dot" />2025 · Bakı</div>
+                  <div className="ev-date"><div className="ev-date-dot" />06.06.2026 · Bakı</div>
                   <a href="https://inova-healthcare.com/layihələr/" className="ev-link">Qeydiyyat →</a>
                 </div>
               </div>
@@ -449,17 +360,6 @@ html{scroll-behavior:smooth;}
                 </div>
                 <div className="ev-bottom">
                   <div className="ev-date"><div className="ev-date-dot" style={{ opacity: 0.2 }} />2024 · Bakı</div>
-                  <a href="https://inova-healthcare.com/layihələr/" className="ev-link" style={{ opacity: 0.4 }}>Baxış →</a>
-                </div>
-              </div>
-              <div className="ev-card">
-                <div className="ev-top">
-                  <span className="ev-badge past">Keçmiş</span>
-                  <div className="ev-title">Reproduktiv Sağlamlıq Konfransı</div>
-                  <div className="ev-desc">Ginekologiya üzrə müasir cərrahi texnikalar, laparoskopiya və minimal invaziv müdaxilə protokolları.</div>
-                </div>
-                <div className="ev-bottom">
-                  <div className="ev-date"><div className="ev-date-dot" style={{ opacity: 0.2 }} />2023 · Bakı</div>
                   <a href="https://inova-healthcare.com/layihələr/" className="ev-link" style={{ opacity: 0.4 }}>Baxış →</a>
                 </div>
               </div>
@@ -510,22 +410,10 @@ html{scroll-behavior:smooth;}
           </div>
         </section>
 
-        <div className="cta-block">
-          <div className="cta-gfx" />
-          <div className="cta-gfx2" />
-          <div style={{ position: "relative", zIndex: 1 }}>
-            <h2>Növbəti konfransımıza qoşulun</h2>
-            <p>Səhiyyə mütəxəssisləri ilə birlikdə bilik və təcrübə paylaşın.</p>
-          </div>
-          <a href="https://inova-healthcare.com/layihələr/" className="btn-glow" style={{ position: "relative", zIndex: 1, whiteSpace: "nowrap" }}>
-            Konfrans Səhifəsi →
-          </a>
-        </div>
-
         <footer>
           <div className="ft-grid">
             <div>
-              <div className="ft-logo"><img src={logo} alt="iNova" /></div>
+              <div className="ft-logo"><img src={logo} alt="INOVA Health Care" /></div>
               <p className="ft-desc">Səhiyyədə bilik və təcrübənin körpüsü. 2014-dən bəri Bakıda tibbi konfrans platforması.</p>
             </div>
             <div>
@@ -540,15 +428,15 @@ html{scroll-behavior:smooth;}
             <div>
               <div className="ft-h">Əlaqə</div>
               <ul className="ft-ul">
-                <li>Nəsibbəy Yusifbəyli, Bakı</li>
                 <li><a href="tel:+994102395356">+994 10 239 53 56</a></li>
-                <li><a href="https://inova-healthcare.com/layihələr/">inova-healthcare.com</a></li>
+                <li><a href="mailto:info@inova-healthcare.com">info@inova-healthcare.com</a></li>
+                <li><a href="https://inova-healthcare.com">inova-healthcare.com</a></li>
               </ul>
             </div>
           </div>
           <div className="ft-bot">
-            <span>© 2014 iNova Health Care. Bütün hüquqlar qorunur.</span>
-            <a href="https://inova-healthcare.com/layihələr/">inova-healthcare.com ↗</a>
+            <span>© 2014–2026 INOVA Health Care. Bütün hüquqlar qorunur.</span>
+            <a href="https://inova-healthcare.com">inova-healthcare.com ↗</a>
           </div>
         </footer>
       </div>
