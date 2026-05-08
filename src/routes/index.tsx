@@ -366,7 +366,7 @@ html{scroll-behavior:smooth;}
               Elmi araşdırmalar ilə klinik praktikanı inteqrasiya edən, mütəxəssislər üçün davamlı inkişaf mühiti yaradan tibbi konfrans platforması.
             </p>
             <div className="hero-btns">
-              <a href="https://inova-healthcare.com" className="btn-glow">Konfranslara Bax →</a>
+              <a href="https://inova-healthcare.com/layihələr/" className="btn-glow">Konfranslara Bax →</a>
               <a href="#miss" className="btn-line">Daha Ətraflı</a>
             </div>
           </div>
@@ -433,12 +433,12 @@ html{scroll-behavior:smooth;}
               <div className="ev-card" style={{ borderColor: "rgba(91,184,232,.2)" }}>
                 <div className="ev-top">
                   <span className="ev-badge upcoming">Gələcək</span>
-                  <div className="ev-title">Ginekologiya və Endokrinologiya Konfransı 2025</div>
+                  <div className="ev-badge past mx-[75px]">"Fokusda Qadın - Qadın xəstəliklərinə multidisiplinar yanaşma: ginekologiya, endokrinologiya və onkologiyanın klinik inteqrasiyası" mövzusunda elmi-praktiki Konfrans {"\n"}06.06.2026</div>
                   <div className="ev-desc">Multidisiplinar yanaşma — müasir diaqnostika, hormonal pozğunluqlar və reproduktiv sağlamlıq üzrə beynəlxalq spikerlər.</div>
                 </div>
                 <div className="ev-bottom">
                   <div className="ev-date"><div className="ev-date-dot" />2025 · Bakı</div>
-                  <a href="https://inova-healthcare.com" className="ev-link">Qeydiyyat →</a>
+                  <a href="https://inova-healthcare.com/layihələr/" className="ev-link">Qeydiyyat →</a>
                 </div>
               </div>
               <div className="ev-card">
@@ -449,7 +449,7 @@ html{scroll-behavior:smooth;}
                 </div>
                 <div className="ev-bottom">
                   <div className="ev-date"><div className="ev-date-dot" style={{ opacity: 0.2 }} />2024 · Bakı</div>
-                  <a href="https://inova-healthcare.com" className="ev-link" style={{ opacity: 0.4 }}>Baxış →</a>
+                  <a href="https://inova-healthcare.com/layihələr/" className="ev-link" style={{ opacity: 0.4 }}>Baxış →</a>
                 </div>
               </div>
               <div className="ev-card">
@@ -460,7 +460,7 @@ html{scroll-behavior:smooth;}
                 </div>
                 <div className="ev-bottom">
                   <div className="ev-date"><div className="ev-date-dot" style={{ opacity: 0.2 }} />2023 · Bakı</div>
-                  <a href="https://inova-healthcare.com" className="ev-link" style={{ opacity: 0.4 }}>Baxış →</a>
+                  <a href="https://inova-healthcare.com/layihələr/" className="ev-link" style={{ opacity: 0.4 }}>Baxış →</a>
                 </div>
               </div>
             </div>
@@ -517,7 +517,7 @@ html{scroll-behavior:smooth;}
             <h2>Növbəti konfransımıza qoşulun</h2>
             <p>Səhiyyə mütəxəssisləri ilə birlikdə bilik və təcrübə paylaşın.</p>
           </div>
-          <a href="https://inova-healthcare.com" className="btn-glow" style={{ position: "relative", zIndex: 1, whiteSpace: "nowrap" }}>
+          <a href="https://inova-healthcare.com/layihələr/" className="btn-glow" style={{ position: "relative", zIndex: 1, whiteSpace: "nowrap" }}>
             Konfrans Səhifəsi →
           </a>
         </div>
@@ -542,13 +542,13 @@ html{scroll-behavior:smooth;}
               <ul className="ft-ul">
                 <li>Nəsibbəy Yusifbəyli, Bakı</li>
                 <li><a href="tel:+994102395356">+994 10 239 53 56</a></li>
-                <li><a href="https://inova-healthcare.com">inova-healthcare.com</a></li>
+                <li><a href="https://inova-healthcare.com/layihələr/">inova-healthcare.com</a></li>
               </ul>
             </div>
           </div>
           <div className="ft-bot">
             <span>© 2014 iNova Health Care. Bütün hüquqlar qorunur.</span>
-            <a href="https://inova-healthcare.com">inova-healthcare.com ↗</a>
+            <a href="https://inova-healthcare.com/layihələr/">inova-healthcare.com ↗</a>
           </div>
         </footer>
       </div>
