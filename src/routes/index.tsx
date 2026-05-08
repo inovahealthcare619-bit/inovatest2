@@ -402,7 +402,7 @@ html{scroll-behavior:smooth;}
 
         <section className="mission" id="miss">
           <div>
-            <div className="tag">Missiyamız</div>
+            <div className="tag">MİSSİYAMIZ</div>
             <h2>Elm ilə Praktikanın<br /><em>Kəsişmə Nöqtəsi</em></h2>
             <p>
               Fəaliyyətimizin əsas məqsədi səhiyyə sahəsində elmi biliklərin praktik tətbiqlə inteqrasiyasını təmin etmək və mütəxəssislər üçün davamlı inkişaf mühiti yaratmaqdır. Hər bir konfrans konsept mərhələsindən başlayaraq elmi proqramın qurulması, mövzuların aktuallığının müəyyənləşdirilməsi əsasında formalaşdırılır.
