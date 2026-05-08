@@ -344,7 +344,7 @@ html{scroll-behavior:smooth;}
               <div className="ev-card" style={{ borderColor: "rgba(91,184,232,.2)" }}>
                 <div className="ev-top">
                   <span className="ev-badge upcoming">Gələcək</span>
-                  <div className="ev-title">"Fokusda Qadın" — Ginekologiya, Endokrinologiya və Onkologiyanın Klinik İnteqrasiyası</div>
+                  <div className="ev-title">"Fokusda Qadın - Qadın xəstəliklərinə multidisiplinar yanaşma: ginekologiya, endokrinologiya və onkologiyanın klinik inteqrasiyası" mövzusunda elmi-praktiki Konfrans</div>
                   <div className="ev-desc">Multidisiplinar yanaşma — müasir diaqnostika, hormonal pozğunluqlar və reproduktiv sağlamlıq üzrə beynəlxalq spikerlər.</div>
                 </div>
                 <div className="ev-bottom">
@@ -355,8 +355,8 @@ html{scroll-behavior:smooth;}
               <div className="ev-card">
                 <div className="ev-top">
                   <span className="ev-badge past">Keçmiş</span>
-                  <div className="ev-title">Onkologiya Multidisiplinar Simpozium</div>
-                  <div className="ev-desc">Beynəlxalq onkologiya protokolları, klinik hal müzakirələri və yeni müalicə metodları üzrə intensiv proqram.</div>
+                  <div className="ev-title">Endometrioz - yeniliklər və müasir müalicə alqoritmləri</div>
+                  <div className="ev-desc">Master-klassda T.E.D. Prof. O. A. Pustotina Endometriozun diaqnostika və müalicəsində beynəlxalq tövsiyyələr, mövcud yeniliklər haqqda məlumatlar, həmçinin öz peşəkar təcrübəsini bölüşmüşdür</div>
                 </div>
                 <div className="ev-bottom">
                   <div className="ev-date"><div className="ev-date-dot" style={{ opacity: 0.2 }} />2024 · Bakı</div>
