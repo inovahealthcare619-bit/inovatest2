@@ -355,12 +355,12 @@ html{scroll-behavior:smooth;}
               <div className="ev-card">
                 <div className="ev-top">
                   <span className="ev-badge past">Keçmiş</span>
-                  <div className="ev-title">Onkologiya Multidisiplinar Simpozium</div>
-                  <div className="ev-desc">Beynəlxalq onkologiya protokolları, klinik hal müzakirələri və yeni müalicə metodları üzrə intensiv proqram.</div>
+                  <div className="ev-title">Endometrioz - yeniliklər və müasir müalicə alqoritmləri</div>
+                  <div className="ev-desc">Mater-klassda O.A. Pustotina Endometriozun diaqnostika və müalicəsində beynəlxalq tövsiyyələr, mövcud yeniliklər və həmçinin öz peşəkar təcrübəsini iştirakşılarla bölüşmüşdür</div>
                 </div>
                 <div className="ev-bottom">
                   <div className="ev-date"><div className="ev-date-dot" style={{ opacity: 0.2 }} />2024 · Bakı</div>
-                  <a href="https://inova-healthcare.com/layihələr/" className="ev-link" style={{ opacity: 0.4 }}>Baxış →</a>
+                  <a href="https://inovatest2.lovable.app/#events" className="ev-link" style={{ opacity: 0.4 }}>Baxış →</a>
                 </div>
               </div>
             </div>
