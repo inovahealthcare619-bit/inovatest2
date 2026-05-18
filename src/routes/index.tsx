@@ -349,7 +349,7 @@ html{scroll-behavior:smooth;}
                 </div>
                 <div className="ev-bottom">
                   <div className="ev-date"><div className="ev-date-dot" />06.06.2026 · Bakı</div>
-                  <a href="https://inova-healthcare.com/layihələr/" className="ev-link">Qeydiyyat →</a>
+                  <a href="https://inova-healthcare.com/" className="ev-link">Konfransla tanış ol →</a>
                 </div>
               </div>
               <div className="ev-card">
