@@ -275,7 +275,7 @@ html{scroll-behavior:smooth;}
           <div className="hero-bg">
             <img
               className="hero-bg-img"
-              src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1600&q=80&fit=crop"
+              src="https://images.unsplash.com/photo-1596522354195-e84ae3c98731?q=80&w=1600&fit=crop"
               alt="Tibbi konfrans"
             />
             <div className="hero-bg-grad" />
