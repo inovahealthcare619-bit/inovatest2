@@ -282,7 +282,7 @@ html{scroll-behavior:smooth;}
           </div>
           <div className="hero-content">
             <div className="hero-chip">
-              <div className="pulse" />INOVA Health Care · Bakı · 2014
+              <div className="pulse" />INOVA Health Care · Bakı 
             </div>
             <h1>
               <span className="l1">Tibbi Bilikləri</span>
