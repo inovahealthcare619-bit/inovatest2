@@ -365,8 +365,18 @@ html{scroll-behavior:smooth;}
                 <div className="ev-bottom">
                   <div className="ev-date"><div className="ev-date-dot" style={{ opacity: 0.2 }} />2024 · Bakı</div>
                   <a href="https://inovatest2.lovable.app/#events" className="ev-link" style={{ opacity: 0.4 }}>Baxış →</a>
+              <div className="ev-card">
+                <div className="ev-top">
+                  <span className="ev-badge past">Keçmiş</span>
+                  <div className="ev-title">Anomal uşaqlıq qanaxmaları — mama-ginekoloqlar üçün master-klass</div>
+                  <div className="ev-desc">Holiday Inn Baku</div>
+                </div>
+                <div className="ev-bottom">
+                  <div className="ev-date"><div className="ev-date-dot" style={{ opacity: 0.2 }} />03.11.2023 · Bakı</div>
+                  <a href="https://https://inovatest2.lovable.app" className="ev-link" style={{ opacity: 0.4 }}>Baxış →</a>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         </section>
