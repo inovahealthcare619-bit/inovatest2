@@ -181,7 +181,11 @@ html{scroll-behavior:smooth;}
 .sec-tag{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sky);margin-bottom:14px;}
 .sec-h{font-family:'Instrument Serif',serif;font-size:clamp(28px,3.5vw,46px);color:#fff;line-height:1.2;}
 .sec-h em{color:var(--sky);font-style:italic;}
-.events-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:860px;margin:0 auto;}
+.events-grid{display:flex;flex-wrap:nowrap;gap:16px;max-width:860px;margin:0 auto;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:8px;}
+.events-grid::-webkit-scrollbar{height:6px;}
+.events-grid::-webkit-scrollbar-thumb{background:rgba(91,184,232,.3);border-radius:3px;}
+.events-grid > .ev-card{flex:0 0 340px;max-width:340px;scroll-snap-align:start;}
+@media(max-width:640px){.events-grid > .ev-card{flex:0 0 85%;max-width:85%;}}
 .ev-card{background:var(--navy);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.06);transition:all .3s;display:flex;flex-direction:column;}
 .ev-card:hover{transform:translateY(-5px);border-color:rgba(91,184,232,.25);box-shadow:0 20px 40px rgba(0,0,0,.3);}
 .ev-top{padding:28px 28px 20px;flex:1;}
@@ -361,6 +365,17 @@ html{scroll-behavior:smooth;}
                 <div className="ev-bottom">
                   <div className="ev-date"><div className="ev-date-dot" style={{ opacity: 0.2 }} />2024 · Bakı</div>
                   <a href="https://inovatest2.lovable.app/#events" className="ev-link" style={{ opacity: 0.4 }}>Baxış →</a>
+                </div>
+              </div>
+              <div className="ev-card">
+                <div className="ev-top">
+                  <span className="ev-badge past">Keçmiş</span>
+                  <div className="ev-title">Anomal uşaqlıq qanaxmaları — mama-ginekoloqlar üçün master-klass</div>
+                  <div className="ev-desc">Holiday Inn Baku</div>
+                </div>
+                <div className="ev-bottom">
+                  <div className="ev-date"><div className="ev-date-dot" style={{ opacity: 0.2 }} />03.11.2023 · Bakı</div>
+                  <a href="https://https://inovatest2.lovable.app" className="ev-link" style={{ opacity: 0.4 }}>Baxış →</a>
                 </div>
               </div>
             </div>
